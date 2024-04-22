@@ -25,9 +25,6 @@ public:
   Fermion& operator=(Fermion& fermion_in);
   // Move assignment
   Fermion& operator=(Fermion&& fermion_in);
-
-  string get_name(){return "f";}
-  void print_data(){int i =5;}
 };
 
 #endif

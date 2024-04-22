@@ -1,7 +1,7 @@
 #include"Fermion.h"
 
 // Constructors
-// Paramterised
+// Parameterised
 Fermion::Fermion(double energy, double px, double py, double pz, int mass_in, int charge_in, bool anti_in):
 Particle(energy, px, py, pz, spin, mass_in, charge_in, anti_in){}
 
