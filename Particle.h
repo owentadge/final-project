@@ -5,6 +5,7 @@
 #include"FourMomentum.h"
 
 using std::string;
+using std::move;
 
 class Particle
 {
@@ -36,7 +37,13 @@ public:
   int get_rest_mass();
   bool get_anti();
   int get_charge();
-  string get_name();
+  float get_spin();
+  FourMomentum get_four_momentum();
+  virtual string get_name() = 0;
+  // Setters
+  void set_four_momentum(FourMomentum four_momentum_in);
+  // Printer function
+  virtual void print_data() = 0;
 };
 
 

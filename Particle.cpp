@@ -78,3 +78,8 @@ Particle& Particle::operator=(Particle&& particle_in)
 int Particle::get_rest_mass(){return rest_mass;}
 bool Particle::get_anti(){return is_anti;}
 int Particle::get_charge(){return charge;}
+float Particle::get_spin(){return spin;}
+FourMomentum Particle::get_four_momentum(){return *four_momentum;}
+
+// Setters
+void Particle::set_four_momentum(FourMomentum four_momentum_in){four_momentum = std::make_unique<FourMomentum>(four_momentum_in);}
