@@ -83,3 +83,15 @@ FourMomentum Particle::get_four_momentum(){return *four_momentum;}
 
 // Setters
 void Particle::set_four_momentum(FourMomentum four_momentum_in){four_momentum = std::make_unique<FourMomentum>(four_momentum_in);}
+
+// Printer
+void Particle::print_data()
+{
+  std::cout<<"Name: "<<get_name()<<endl<<"Mass: "<<rest_mass<<endl<<"Charge: "<<charge<<endl<<"Spin: "<<spin<<endl<<"Four-momentum: [";
+  for(int i{}; i < 4; i++)
+  {
+    std::cout<<four_momentum->get_momentum().at(i);
+    if(i < 3) std::cout<<", ";
+    else std::cout<<"]"<<endl;
+  }  
+}

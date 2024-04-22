@@ -6,6 +6,7 @@
 
 using std::string;
 using std::move;
+using std::endl;
 
 class Particle
 {
@@ -43,7 +44,7 @@ public:
   // Setters
   void set_four_momentum(FourMomentum four_momentum_in);
   // Printer function
-  virtual void print_data() = 0;
+  virtual void print_data();
 };
 
 
