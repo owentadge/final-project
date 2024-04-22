@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<vector>
+#include<cmath>
 
 using std::vector;
 
@@ -23,6 +24,21 @@ public:
   FourMomentum(FourMomentum& four_momentum_in);
   // Move
   FourMomentum(FourMomentum&& four_momentum_in);
+  // Destructor
+  ~FourMomentum(){}
+
+  // Operator overloads
+  // Copy assignment
+  FourMomentum& operator=(FourMomentum& fm_object_in);
+  // Move assignment
+  FourMomentum& operator=(FourMomentum&& fm_object_in);
+  // Addition
+  FourMomentum operator+(FourMomentum& fm_object_in);
+  // Subtraction
+  FourMomentum operator-(FourMomentum& fm_object_in);
+  // Multiplication / dot product
+  double operator*(FourMomentum& fm_object_in);
+
   // Getters
   vector<double> get_momentum();
   double get_e();
