@@ -25,6 +25,9 @@ public:
   Neutrino& operator=(Neutrino& neutrino_in);
   // Copy
   Neutrino& operator=(Neutrino&& neutrino_in);
+  
+  // Printer
+  void print_data();
 
   // Getters
   bool get_interacted();

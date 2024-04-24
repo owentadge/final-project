@@ -48,6 +48,16 @@ Neutrino& Neutrino::operator=(Neutrino&& neutrino_in)
   }
 }
 
+// Printer
+void Neutrino::print_data()
+{
+  Particle::print_data();
+  std::cout<<"Interaction status: ";
+  if(has_interacted){std::cout<<"Has interacted";}
+  else{std::cout<<"Has not interacted";}
+  std::cout<<endl<<endl;
+}
+
 // Getters
 bool Neutrino::get_interacted(){return has_interacted;}
 
