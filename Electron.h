@@ -8,7 +8,7 @@ private:
   vector<double> verify_energies(vector<double>);
 protected:
   vector<double> energy_layers;
-  static constexpr float rest_mass = 0.511;
+  static constexpr double rest_mass = 0.511;
 public:
   // Constructors
   // Default

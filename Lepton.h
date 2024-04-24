@@ -11,8 +11,8 @@ public:
   // Default
   Lepton() = default;
   // Parameterised
-  Lepton(double energy, double px, double py, double pz, float mass_in, float charge_in, bool anti_in);
-  Lepton(vector<double> energy_in, float mass_in, float charge_in, bool anti_in);
+  Lepton(double energy, double px, double py, double pz, double mass_in, double charge_in, bool anti_in);
+  Lepton(vector<double> energy_in, double mass_in, double charge_in, bool anti_in);
   // Copy
   Lepton(Lepton& lepton_in);
   // Move

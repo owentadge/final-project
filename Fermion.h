@@ -6,14 +6,14 @@
 class Fermion: public Particle
 {
 protected:
-  static constexpr float spin = 0.5;
+  static constexpr double spin = 0.5;
 public:
   // Constructors
   // Default
   Fermion() = default;
   // Parameterised
-  Fermion(double energy, double px, double py, double pz, float mass_in, float charge_in, bool anti_in);
-  Fermion(vector<double> energy_in, float mass_in, float charge_in, bool anti_in);
+  Fermion(double energy, double px, double py, double pz, double mass_in, double charge_in, bool anti_in);
+  Fermion(vector<double> energy_in, double mass_in, double charge_in, bool anti_in);
   // Copy
   Fermion(Fermion& fermion_in);
   // Move

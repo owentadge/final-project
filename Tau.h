@@ -10,7 +10,7 @@ private:
   vector<shared_ptr<Particle>> verify_products(vector<shared_ptr<Particle>>);
 protected:
   vector<shared_ptr<Particle>> decay_products;
-  static constexpr float rest_mass = 1776.8;
+  static constexpr double rest_mass = 1776.8;
 public:
   // Constructors
   // Default

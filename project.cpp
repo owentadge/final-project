@@ -10,19 +10,16 @@
 #include"ElectronNeutrino.h"
 #include"MuonNeutrino.h"
 #include"TauNeutrino.h"
+#include"Quark.h"
 
 
 
 int main()
 {
   std::cout<<std::boolalpha;
-  TauNeutrino test(10,1,2,3,false,true);
-  TauNeutrino test2 = test;
-  TauNeutrino test3 = move(test);
-  TauNeutrino test4;
-  test4 = test2;
-  TauNeutrino test5;
-  test5 = move(test3);
-  test5.print_data();
+  Quark test(10,1,2,3,1,2/3,false,RED);
+  test.print_data();
+  test.set_colour_charge(ANTIGREEN);
+  test.print_data();
   return 0;
 }
