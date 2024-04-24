@@ -17,9 +17,5 @@
 int main()
 {
   std::cout<<std::boolalpha;
-  Quark test(10,1,2,3,1,2/3,false,RED);
-  test.print_data();
-  test.set_colour_charge(ANTIGREEN);
-  test.print_data();
   return 0;
 }

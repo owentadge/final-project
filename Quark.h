@@ -28,7 +28,6 @@ public:
   // Printer
   void print_data();
 
-  string get_name(){return "not it";}
   
   // Getters
   double get_baryon_number();
