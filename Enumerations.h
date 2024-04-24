@@ -1,3 +1,5 @@
+#ifndef Enumerations_h
+#define Enumerations_h
 enum ColourCharge
 {
   NONE,
@@ -8,3 +10,11 @@ enum ColourCharge
   GREEN = 5,
   ANTIGREEN = 6 
 };
+enum HiggsDecayType
+{
+  Z,
+  W,
+  PHOTON,
+  B
+};
+#endif

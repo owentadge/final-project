@@ -17,13 +17,14 @@
 #include"Bottom.h"
 #include"Strange.h"
 #include"Charm.h"
+#include"HiggsBoson.h"
 
 
 
 int main()
 {
   std::cout<<std::boolalpha;
-  Top test(10,1,2,3,false,BLUE);
-  test.print_data();
+  HiggsBoson test(10,2,2,2);
+  test.print_data(true);
   return 0;
 }
