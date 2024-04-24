@@ -12,8 +12,8 @@ class Particle
 {
 protected:
   std::unique_ptr<FourMomentum> four_momentum;
-  int rest_mass;
-  int charge;
+  float rest_mass;
+  float charge;
   bool is_anti;
   float spin;
 public:
@@ -21,8 +21,8 @@ public:
   // Default
   Particle() = default;
   // Parameterised
-  Particle(double energy, double px, double py, double pz,float spin_in, int mass_in, int charge_in, bool anti_in);
-  Particle(vector<double> momentum_in, float spin_in, int mass_in, int charge_in, bool anti_in);
+  Particle(double energy, double px, double py, double pz,float spin_in, float mass_in, float charge_in, bool anti_in);
+  Particle(vector<double> momentum_in, float spin_in, float mass_in, float charge_in, bool anti_in);
   // Copy
   Particle(Particle& particle_in);
   // Move
@@ -35,9 +35,9 @@ public:
   // Move assignment
   Particle& operator=(Particle&& particle_in);
   // Getters
-  int get_rest_mass();
+  float get_rest_mass();
   bool get_anti();
-  int get_charge();
+  float get_charge();
   float get_spin();
   FourMomentum get_four_momentum();
   virtual string get_name() = 0;

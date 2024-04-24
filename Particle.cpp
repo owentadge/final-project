@@ -2,7 +2,7 @@
 
 // Constructors
 // Parameterised
-Particle::Particle(double energy, double px, double py, double pz, float spin_in, int mass_in, int charge_in, bool anti_in)
+Particle::Particle(double energy, double px, double py, double pz, float spin_in, float mass_in, float charge_in, bool anti_in)
 {
   four_momentum = std::make_unique<FourMomentum>(FourMomentum(energy, px, py, pz));
   rest_mass = mass_in;
@@ -11,7 +11,7 @@ Particle::Particle(double energy, double px, double py, double pz, float spin_in
   spin = spin_in;
 }
 
-Particle::Particle(vector<double> momentum_in, float spin_in, int mass_in, int charge_in, bool anti_in)
+Particle::Particle(vector<double> momentum_in, float spin_in, float mass_in, float charge_in, bool anti_in)
 {
   four_momentum = std::make_unique<FourMomentum>(FourMomentum(momentum_in));
   rest_mass = mass_in;
@@ -75,9 +75,9 @@ Particle& Particle::operator=(Particle&& particle_in)
 }
 
 // Getters
-int Particle::get_rest_mass(){return rest_mass;}
+float Particle::get_rest_mass(){return rest_mass;}
 bool Particle::get_anti(){return is_anti;}
-int Particle::get_charge(){return charge;}
+float Particle::get_charge(){return charge;}
 float Particle::get_spin(){return spin;}
 FourMomentum Particle::get_four_momentum(){return *four_momentum;}
 
@@ -87,7 +87,8 @@ void Particle::set_four_momentum(FourMomentum four_momentum_in){four_momentum = 
 // Printer
 void Particle::print_data()
 {
-  std::cout<<"Name: "<<get_name()<<endl<<"Mass: "<<rest_mass<<endl<<"Charge: "<<charge<<endl<<"Spin: "<<spin<<endl<<"Four-momentum: [";
+  std::cout<<"Name: "<<get_name()<<endl<<"Mass: "<<rest_mass<<" MeV/c^2"<<endl<<"Charge: "<<charge<< " e"<<endl
+  <<"Spin: "<<spin<<endl<<"Four-momentum: [";
   for(int i{}; i < 4; i++)
   {
     std::cout<<four_momentum->get_momentum().at(i);

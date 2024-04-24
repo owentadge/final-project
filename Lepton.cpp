@@ -2,13 +2,13 @@
 
 // Constructors
 // Parameterised
-Lepton::Lepton(double energy, double px, double py, double pz, int mass_in, int charge_in, bool anti_in): 
+Lepton::Lepton(double energy, double px, double py, double pz, float mass_in, float charge_in, bool anti_in): 
 Fermion(energy, px, py, pz, mass_in, charge_in, anti_in)
 {
   if(is_anti){lepton_number = -1;}
   else lepton_number = 1;
 }
-Lepton::Lepton(vector<double> momentum_in,int mass_in, int charge_in, bool anti_in):
+Lepton::Lepton(vector<double> momentum_in, float mass_in, float charge_in, bool anti_in):
 Fermion(momentum_in, mass_in, charge_in, anti_in)
 {
   if(is_anti){lepton_number = -1;}

@@ -8,14 +8,14 @@ private:
   vector<double> verify_energies(vector<double>);
 protected:
   vector<double> energy_layers;
-  static constexpr int rest_mass = 1;
+  static constexpr float rest_mass = 0.511;
 public:
   // Constructors
   // Default
   Electron() = default;
   // Parameterised
-  Electron(double energy, double px, double py, double pz, int charge_in, bool anti_in, vector<double> deposited_energies);
-  Electron(vector<double> momentum_in, int charge_in, bool anti_in, vector<double> deposited_energies);
+  Electron(double energy, double px, double py, double pz, bool anti_in, vector<double> deposited_energies);
+  Electron(vector<double> momentum_in, bool anti_in, vector<double> deposited_energies);
   // Copy
   Electron(Electron& electron_in);
   // Move

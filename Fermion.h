@@ -12,8 +12,8 @@ public:
   // Default
   Fermion() = default;
   // Parameterised
-  Fermion(double energy, double px, double py, double pz, int mass_in, int charge_in, bool anti_in);
-  Fermion(vector<double> energy_in,int mass_in, int charge_in, bool anti_in);
+  Fermion(double energy, double px, double py, double pz, float mass_in, float charge_in, bool anti_in);
+  Fermion(vector<double> energy_in, float mass_in, float charge_in, bool anti_in);
   // Copy
   Fermion(Fermion& fermion_in);
   // Move

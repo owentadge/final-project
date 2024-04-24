@@ -2,15 +2,17 @@
 
 // Constructors
 // Parameterised
-Electron::Electron(double energy, double px, double py, double pz, int charge_in, bool anti_in, vector<double> deposited_energies):
-Lepton(energy, px, py, pz, rest_mass, charge_in, anti_in)
+Electron::Electron(double energy, double px, double py, double pz, bool anti_in, vector<double> deposited_energies):
+Lepton(energy, px, py, pz, rest_mass, -1, anti_in)
 {
+  if(is_anti){charge = 1;}
   energy_layers = verify_energies(deposited_energies);
 }
 
-Electron::Electron(vector<double> momentum_in, int charge_in, bool anti_in, vector<double> deposited_energies):
-Lepton(momentum_in, rest_mass, charge_in, anti_in)
+Electron::Electron(vector<double> momentum_in, bool anti_in, vector<double> deposited_energies):
+Lepton(momentum_in, rest_mass, 1, anti_in)
 {
+  if(is_anti){charge = 1;}
   energy_layers = verify_energies(deposited_energies);
 }
 // Copy
@@ -81,4 +83,8 @@ void Electron::print_data()
   {
     std::cout<<"Layer "<<i+1<<": "<<energy_layers.at(i)<<endl;
   }
+  std::cout<<endl;
 }
+
+// Setters
+void Electron::set_energy_layers(vector<double> energies_in){energy_layers = verify_energies(energies_in);}
