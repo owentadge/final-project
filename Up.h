@@ -20,6 +20,9 @@ public:
   Up& operator=(Up& up_in);
   // Move
   Up& operator=(Up&& up_in);
+
+  // Getters
+  string get_name();
 };
 
 #endif

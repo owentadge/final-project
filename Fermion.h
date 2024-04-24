@@ -5,8 +5,6 @@
 
 class Fermion: public Particle
 {
-protected:
-  static constexpr double spin = 0.5;
 public:
   // Constructors
   // Default
