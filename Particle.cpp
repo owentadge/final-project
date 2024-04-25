@@ -4,8 +4,14 @@
 // Parameterised
 Particle::Particle(double energy, double px, double py, double pz, double spin_in, double mass_in, double charge_in, bool anti_in)
 {
-  four_momentum = std::make_unique<FourMomentum>(FourMomentum(energy, px, py, pz));
   rest_mass = mass_in;
+  four_momentum = std::make_unique<FourMomentum>(FourMomentum(energy, px, py, pz));
+  if(four_momentum->get_invariant_mass() != rest_mass)
+  {
+    std::cout<<"Invariant mass of four-momentum is not particle rest mass!! Assigning default values for given energy..."<<endl;
+    double default_momentum = sqrt((pow(energy, 2) - pow(rest_mass, 2)) / 3);
+    four_momentum = std::make_unique<FourMomentum>(FourMomentum(energy, default_momentum, default_momentum, default_momentum));
+  }
   charge = charge_in;
   is_anti = anti_in;
   spin = spin_in;
@@ -13,8 +19,8 @@ Particle::Particle(double energy, double px, double py, double pz, double spin_i
 
 Particle::Particle(vector<double> momentum_in, double spin_in, double mass_in, double charge_in, bool anti_in)
 {
-  four_momentum = std::make_unique<FourMomentum>(FourMomentum(momentum_in));
   rest_mass = mass_in;
+  four_momentum = std::make_unique<FourMomentum>(FourMomentum(momentum_in));
   charge = charge_in;
   is_anti = anti_in;
   spin = spin_in;

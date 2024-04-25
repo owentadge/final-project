@@ -51,4 +51,14 @@ enum class WDecayType
   TB
 };
 
+enum class TauDecayType
+{
+  ELECTRON,
+  MUON,
+  UD,
+  US,
+  CD,
+  CS
+};
+
 #endif

@@ -8,7 +8,8 @@
 int main()
 {
   std::cout<<std::boolalpha;
-  Gluon test(vector<double>{10,1,2,3}, std::make_pair(ANTIRED, ANTIBLUE));
-  test.print_data();
+  Tau test(vector<double>{10,1,2,3}, false, TauDecayType::MUON);
+  std::cout<<test.get_four_momentum().get_invariant_mass()<<endl<<endl;
+  test.print_data(true);
   return 0;
 }

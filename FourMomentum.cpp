@@ -94,12 +94,8 @@ vector<double> FourMomentum::get_momentum(){return four_momentum;}
 // Invariant mass
 double FourMomentum::get_invariant_mass()
 {
-  double momentum_sum{};
-  for(vector<double>::iterator i = four_momentum.begin() + 1; i < four_momentum.end(); i++)
-  {
-    momentum_sum += pow((*i), 2);
-  }
-  return sqrt(pow(four_momentum.at(0), 2) - momentum_sum);
+  double momentum_sum = pow(this->get_px(), 2) + pow(this->get_py(), 2) + pow(this->get_pz(), 2);
+  return sqrt(pow(this->get_e(), 2) - momentum_sum);
 }
 
 // Setters
