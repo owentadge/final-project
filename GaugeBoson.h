@@ -29,6 +29,9 @@ public:
   // Move
   GaugeBoson(GaugeBoson&& boson_in);
 
+  // Destructor
+  ~GaugeBoson(){}
+
   // Operator overloads
   // Copy assignment
   GaugeBoson& operator=(GaugeBoson& boson_in);

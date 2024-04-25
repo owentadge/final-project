@@ -56,44 +56,51 @@ string Tau::get_name()
 void Tau::set_decay_products(TauDecayType decay_type)
 {
   bool leptonic;
+  decay_products = vector<shared_ptr<Particle>>(3);
   switch(decay_type)
   {
     case TauDecayType::ELECTRON:
-      decay_products = vector<std::shared_ptr<Particle>>{std::make_shared<Electron>(Electron()), 
-                                                         std::make_shared<ElectronNeutrino>(ElectronNeutrino()),
-                                                         std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = vector<std::shared_ptr<Particle>>{std::shared_ptr<Electron>(new Electron()), 
+                                                         std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino()),
+                                                         std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       leptonic = true;        
       break;
     case TauDecayType::MUON:
-      decay_products = vector<std::shared_ptr<Particle>>{std::make_shared<Muon>(Muon()), 
-                                                         std::make_shared<MuonNeutrino>(MuonNeutrino()),
-                                                         std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = vector<std::shared_ptr<Particle>>{std::shared_ptr<Muon>(new Muon()), 
+                                                         std::shared_ptr<MuonNeutrino>(new MuonNeutrino()),
+                                                         std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       leptonic = true;        
       break;  
     case TauDecayType::US:
-      decay_products = vector<std::shared_ptr<Particle>>{std::make_shared<Up>(Up()), 
-                                                         std::make_shared<Strange>(Strange()),
-                                                         std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = vector<std::shared_ptr<Particle>>{std::shared_ptr<Up>(new Up()), 
+                                                         std::shared_ptr<Strange>(new Strange()),
+                                                         std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       leptonic = false;        
       break;  
     case TauDecayType::UD:
-      decay_products = vector<std::shared_ptr<Particle>>{std::make_shared<Up>(Up()), 
-                                                         std::make_shared<Down>(Down()),
-                                                         std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = vector<std::shared_ptr<Particle>>{std::shared_ptr<Up>(new Up()), 
+                                                         std::shared_ptr<Down>(new Down()),
+                                                         std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       leptonic = false;       
       break;   
     case TauDecayType::CS:
-      decay_products = vector<std::shared_ptr<Particle>>{std::make_shared<Charm>(Charm()), 
-                                                         std::make_shared<Strange>(Strange()),
-                                                         std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = vector<std::shared_ptr<Particle>>{std::shared_ptr<Charm>(new Charm()), 
+                                                         std::shared_ptr<Strange>(new Strange()),
+                                                         std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       leptonic = false;        
       break;  
     case TauDecayType::CD:
-      decay_products = vector<std::shared_ptr<Particle>>{std::make_shared<Charm>(Charm()), 
-                                                         std::make_shared<Down>(Down()),
-                                                         std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = vector<std::shared_ptr<Particle>>{std::shared_ptr<Charm>(new Charm()), 
+                                                         std::shared_ptr<Down>(new Down()),
+                                                         std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       leptonic = false;        
-      break;                                  
+      break;  
+    default:
+      std::cout<<"No decay type given - defaulting to Electron"<<endl;
+      decay_products = vector<std::shared_ptr<Particle>>{std::shared_ptr<Electron>(new Electron()), 
+                                                         std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino()),
+                                                         std::shared_ptr<TauNeutrino>(new TauNeutrino())};
+      leptonic = true;                                
   }
   if(leptonic)
   {

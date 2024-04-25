@@ -17,6 +17,10 @@ public:
   Lepton(Lepton& lepton_in);
   // Move
   Lepton(Lepton&& lepton_in);
+
+  // Destructor
+  ~Lepton(){}
+
   // Operator overloads
   // Copy assignment
   Lepton& operator=(Lepton& lepton_in);

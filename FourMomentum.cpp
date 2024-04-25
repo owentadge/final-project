@@ -49,10 +49,12 @@ FourMomentum& FourMomentum::operator=(FourMomentum&& fm_object_in)
     return *this;
   }  
 }
+
+
 // Addition
-FourMomentum FourMomentum::operator+(FourMomentum& fm_object_in)
+FourMomentum FourMomentum::operator+(FourMomentum fm_object_in)
 {
-  vector<double> temp;
+  vector<double> temp{};
   for(int i{}; i < 4; i++)
   {
     temp.push_back(four_momentum.at(i) + fm_object_in.four_momentum.at(i));
@@ -60,9 +62,9 @@ FourMomentum FourMomentum::operator+(FourMomentum& fm_object_in)
   return FourMomentum(temp);
 }
 // Subtraction
-FourMomentum FourMomentum::operator-(FourMomentum& fm_object_in)
+FourMomentum FourMomentum::operator-(FourMomentum fm_object_in)
 {
-  vector<double> temp;
+  vector<double> temp{};
   for(int i{}; i < 4; i++)
   {
     temp.push_back(four_momentum.at(i) - fm_object_in.four_momentum.at(i));
@@ -70,7 +72,7 @@ FourMomentum FourMomentum::operator-(FourMomentum& fm_object_in)
   return FourMomentum(temp);
 }
 // Multiplication / dot product
-double FourMomentum::operator*(FourMomentum& fm_object_in)
+double FourMomentum::operator*(FourMomentum fm_object_in)
 {
   double result;
   for(int i{}; i < 4; i++)

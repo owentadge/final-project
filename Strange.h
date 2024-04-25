@@ -15,6 +15,8 @@ public:
   // Move
   Strange(Strange&& strange_in);
 
+  ~Strange(){}
+
   // Operator overloads
   // Copy
   Strange& operator=(Strange& strange_in);

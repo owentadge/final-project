@@ -33,11 +33,11 @@ public:
   // Move assignment
   FourMomentum& operator=(FourMomentum&& fm_object_in);
   // Addition
-  FourMomentum operator+(FourMomentum& fm_object_in);
+  FourMomentum operator+(FourMomentum fm_object_in);
   // Subtraction
-  FourMomentum operator-(FourMomentum& fm_object_in);
+  FourMomentum operator-(FourMomentum fm_object_in);
   // Multiplication / dot product
-  double operator*(FourMomentum& fm_object_in);
+  double operator*(FourMomentum fm_object_in);
 
   // Getters
   vector<double> get_momentum();
@@ -48,6 +48,7 @@ public:
   double get_invariant_mass();
   // Momentum setter
   void set_momentum(vector<double>& vector_in);
+
 };
 
 

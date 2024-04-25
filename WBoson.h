@@ -19,6 +19,9 @@ public:
   // Move
   WBoson(WBoson&& w_in);
 
+  // Destructor
+  ~WBoson(){}
+
   // Operator overloads
   // Copy assignment
   WBoson& operator=(WBoson& w_in);

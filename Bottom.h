@@ -14,6 +14,9 @@ public:
   Bottom(Bottom& bottom_in);
   // Move
   Bottom(Bottom&& bottom_in);
+  
+  // Destructor
+  ~Bottom(){}
 
   // Operator overloads
   // Copy

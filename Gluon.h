@@ -20,6 +20,9 @@ public:
   // Move
   Gluon(Gluon&& gluon_in);
 
+  // Destructor
+  ~Gluon(){}
+
   // Operator overloads
   // Copy assignment
   Gluon& operator=(Gluon& gluon_in);

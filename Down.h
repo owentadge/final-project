@@ -15,6 +15,9 @@ public:
   // Move
   Down(Down&& down_in);
 
+  // Destructor
+  ~Down(){}
+
   // Operator overloads
   // Copy
   Down& operator=(Down& down_in);

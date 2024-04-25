@@ -24,6 +24,9 @@ public:
   // Move
   Higgs(Higgs&& higgs_in);
 
+  // Destructor
+  ~Higgs(){}
+
   // Operator overloads
   // Copy assignment
   Higgs& operator=(Higgs& higgs_in);

@@ -46,41 +46,44 @@ void ZBoson::set_decay_products(ZDecayType decay_type)
   switch(decay_type)
   {
     case ZDecayType::ELECTRON:
-      decay_products = {std::make_shared<Electron>(Electron()), std::make_shared<Electron>(Electron())};
+      decay_products = {std::shared_ptr<Electron>(new Electron()), std::shared_ptr<Electron>(new Electron())};
       break;
     case ZDecayType::MUON:
-      decay_products = {std::make_shared<Muon>(Muon()), std::make_shared<Muon>(Muon())};
+      decay_products = {std::shared_ptr<Muon>(new Muon()), std::shared_ptr<Muon>(new Muon())};
       break;
     case ZDecayType::TAU:
-      decay_products = {std::make_shared<Tau>(Tau()), std::make_shared<Tau>(Tau())};
+      decay_products = {std::shared_ptr<Tau>(new Tau()), std::shared_ptr<Tau>(new Tau())};
       break;
     case ZDecayType::ELECTRONNEUTRINO:
-      decay_products = {std::make_shared<ElectronNeutrino>(ElectronNeutrino()), std::make_shared<ElectronNeutrino>(ElectronNeutrino())};
+      decay_products = {std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino()), std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino())};
       break;
     case ZDecayType::MUONNEUTRINO:
-      decay_products = {std::make_shared<ElectronNeutrino>(ElectronNeutrino()), std::make_shared<ElectronNeutrino>(ElectronNeutrino())};
+      decay_products = {std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino()), std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino())};
       break;
     case ZDecayType::TAUNEUTRINO:
-      decay_products = {std::make_shared<TauNeutrino>(TauNeutrino()), std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = {std::shared_ptr<TauNeutrino>(new TauNeutrino()), std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       break;                    
     case ZDecayType::UP:
-      decay_products = {std::make_shared<Up>(Up()), std::make_shared<Up>(Up())};
+      decay_products = {std::shared_ptr<Up>(new Up()), std::shared_ptr<Up>(new Up())};
       break;
     case ZDecayType::DOWN:
-      decay_products = {std::make_shared<Down>(Down()), std::make_shared<Down>(Down())};
+      decay_products = {std::shared_ptr<Down>(new Down()), std::shared_ptr<Down>(new Down())};
       break;
     case ZDecayType::TOP:
-      decay_products = {std::make_shared<Top>(Top()), std::make_shared<Top>(Top())};
+      decay_products = {std::shared_ptr<Top>(new Top()), std::shared_ptr<Top>(new Top())};
       break;
     case ZDecayType::BOTTOM:
-      decay_products = {std::make_shared<Bottom>(Bottom()), std::make_shared<Bottom>(Bottom())};
+      decay_products = {std::shared_ptr<Bottom>(new Bottom()), std::shared_ptr<Bottom>(new Bottom())};
       break;
     case ZDecayType::STRANGE:
-      decay_products = {std::make_shared<Strange>(Strange()), std::make_shared<Strange>(Strange())};
+      decay_products = {std::shared_ptr<Strange>(new Strange()), std::shared_ptr<Strange>(new Strange())};
       break;
     case ZDecayType::CHARM:
-      decay_products = {std::make_shared<Charm>(Charm()), std::make_shared<Charm>(Charm())};
+      decay_products = {std::shared_ptr<Charm>(new Charm()), std::shared_ptr<Charm>(new Charm())};
       break;
+    default:
+      std::cout<<"No decay type given, defaulting to Bottom"<<endl;
+      decay_products = {std::shared_ptr<Bottom>(new Bottom()), std::shared_ptr<Bottom>(new Bottom())};
   }
   decay_products.at(0)->set_anti(false);
   decay_products.at(1)->set_anti(true);

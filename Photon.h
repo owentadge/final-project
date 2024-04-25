@@ -16,6 +16,9 @@ public:
  // Move
  Photon(Photon&& photon_in);
 
+ // Destructor
+ ~Photon(){}
+
  // Operator overloads
  // Copy assignment
  Photon& operator=(Photon& photon_in);

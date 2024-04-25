@@ -19,6 +19,9 @@ public:
   // Move
   Quark(Quark&& quark_in);
 
+  // Destructor
+  ~Quark(){}
+
   // Operator overloads
   // Copy assignment
   Quark& operator=(Quark& quark_in);

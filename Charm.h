@@ -15,6 +15,9 @@ public:
   // Move
   Charm(Charm&& charm_in);
 
+  // Destructor
+  ~Charm(){}
+
   // Operator overloads
   // Copy
   Charm& operator=(Charm& charm_in);

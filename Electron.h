@@ -21,6 +21,9 @@ public:
   // Move
   Electron(Electron&& electron_in);
 
+  // Destructor
+  ~Electron(){}
+
   // Operator overloads
   // Copy assignment
   Electron& operator=(Electron& electron_in);

@@ -15,6 +15,9 @@ public:
   // Move
   Up(Up&& up_in);
 
+  // Destructor
+  ~Up(){}
+
   // Operator overloads
   // Copy
   Up& operator=(Up& up_in);

@@ -51,17 +51,20 @@ void Higgs::set_decay_products(HiggsDecayType decay_type)
   switch(decay_type)
   {
     case HiggsDecayType::Z:
-      decay_products = {std::make_shared<ZBoson>(ZBoson()), std::make_shared<ZBoson>(ZBoson())};
+      decay_products = {std::shared_ptr<ZBoson>(new ZBoson()), std::shared_ptr<ZBoson>(new ZBoson())};
       break;
     case HiggsDecayType::W:
-      decay_products = {std::make_shared<WBoson>(WBoson()), std::make_shared<WBoson>(WBoson())};
+      decay_products = {std::shared_ptr<WBoson>(new WBoson()), std::shared_ptr<WBoson>(new WBoson())};
       break;
     case HiggsDecayType::PHOTON:
-      decay_products = {std::make_shared<Photon>(Photon()), std::make_shared<Photon>(Photon())};
+      decay_products = {std::shared_ptr<Photon>(new Photon()), std::shared_ptr<Photon>(new Photon())};
       break;
     case HiggsDecayType::B:
-      decay_products = {std::make_shared<Bottom>(Bottom()), std::make_shared<Bottom>(Bottom())};
+      decay_products = {std::shared_ptr<Bottom>(new Bottom()), std::shared_ptr<Bottom>(new Bottom())};
       break;
+    default:
+      std::cout<<"No decay type given - defaulting to Z"<<endl;
+      decay_products = {std::shared_ptr<ZBoson>(new ZBoson()), std::shared_ptr<ZBoson>(new ZBoson())};
   }
 }
 

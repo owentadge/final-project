@@ -31,6 +31,9 @@ public:
   // Move
   Tau(Tau&& tau_in);
 
+  // Destructor
+  ~Tau(){}
+
   // Operator overloads
   // Copy assignment
   Tau& operator=(Tau& tau_in);

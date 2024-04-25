@@ -6,11 +6,17 @@ Particle::Particle(double energy, double px, double py, double pz, double spin_i
 {
   rest_mass = mass_in;
   four_momentum = std::make_unique<FourMomentum>(FourMomentum(energy, px, py, pz));
-  if(four_momentum->get_invariant_mass() != rest_mass)
+  if(four_momentum->get_invariant_mass() > rest_mass)
   {
-    std::cout<<"Invariant mass of four-momentum is not particle rest mass!! Assigning default values for given energy..."<<endl;
+    std::cout<<"Invariant mass of four-momentum is greater than particle rest mass!! Assigning default values for given energy..."<<endl;
     double default_momentum = sqrt((pow(energy, 2) - pow(rest_mass, 2)) / 3);
     four_momentum = std::make_unique<FourMomentum>(FourMomentum(energy, default_momentum, default_momentum, default_momentum));
+  }
+  else if(four_momentum->get_invariant_mass() < rest_mass)
+  {
+    std::cout<<"Invariant mass is less than particle rest mass!! Assigning default values for energy = mass + 1 MeV..."<<endl;
+    double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
+    four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
   }
   charge = charge_in;
   is_anti = anti_in;
@@ -21,6 +27,18 @@ Particle::Particle(vector<double> momentum_in, double spin_in, double mass_in, d
 {
   rest_mass = mass_in;
   four_momentum = std::make_unique<FourMomentum>(FourMomentum(momentum_in));
+  if(four_momentum->get_invariant_mass() > rest_mass)
+  {
+    std::cout<<"Invariant mass of four-momentum is greater than particle rest mass!! Assigning default values for given energy..."<<endl;
+    double default_momentum = sqrt((pow(momentum_in.at(0), 2) - pow(rest_mass, 2)) / 3);
+    four_momentum = std::make_unique<FourMomentum>(FourMomentum(momentum_in.at(0), default_momentum, default_momentum, default_momentum));
+  }
+  else if(four_momentum->get_invariant_mass() < rest_mass)
+  {
+    std::cout<<"Invariant mass is less than particle rest mass!! Assigning default values for energy = mass + 1 MeV..."<<endl;
+    double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
+    four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
+  }
   charge = charge_in;
   is_anti = anti_in;
   spin = spin_in;
@@ -94,12 +112,12 @@ void Particle::set_anti(bool anti_in){is_anti = anti_in;}
 // Printer
 void Particle::print_data()
 {
-  std::cout<<"Name: "<<get_name()<<endl<<"Mass: "<<rest_mass<<" MeV/c^2"<<endl<<"Charge: "<<charge<< " e"<<endl
+  std::cout<<"Name: "<<get_name()<<endl<<"Mass: "<<rest_mass<<" MeV"<<endl<<"Charge: "<<charge<< " e"<<endl
   <<"Spin: "<<spin<<endl<<"Four-momentum: [";
   for(int i{}; i < 4; i++)
   {
     std::cout<<four_momentum->get_momentum().at(i);
-    if(i < 3) std::cout<<", ";
-    else std::cout<<"]"<<endl;
+    if(i < 3) std::cout<<" MeV, ";
+    else std::cout<<"MeV]"<<endl;
   }  
 }

@@ -15,6 +15,9 @@ public:
   // Move
   Top(Top&& top_in);
 
+  // Destructor
+  ~Top(){}
+
   // Operator overloads
   // Copy
   Top& operator=(Top& top_in);

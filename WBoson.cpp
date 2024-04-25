@@ -58,41 +58,44 @@ void WBoson::set_decay_products(WDecayType decay_type)
   switch(decay_type)
   {
     case WDecayType::ELECTRON:
-      decay_products = {std::make_shared<Electron>(Electron()), std::make_shared<ElectronNeutrino>(ElectronNeutrino())};
+      decay_products = {std::shared_ptr<Electron>(new Electron()), std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino())};
       break;
     case WDecayType::MUON:
-      decay_products = {std::make_shared<Muon>(Muon()), std::make_shared<MuonNeutrino>(MuonNeutrino())};
+      decay_products = {std::shared_ptr<Muon>(new Muon()), std::shared_ptr<MuonNeutrino>(new MuonNeutrino())};
       break;
     case WDecayType::TAU:
-      decay_products = {std::make_shared<Tau>(Tau()), std::make_shared<TauNeutrino>(TauNeutrino())};
+      decay_products = {std::shared_ptr<Tau>(new Tau()), std::shared_ptr<TauNeutrino>(new TauNeutrino())};
       break;
     case WDecayType::UD:
-      decay_products = {std::make_shared<Up>(Up()), std::make_shared<Down>(Down())};
+      decay_products = {std::shared_ptr<Up>(new Up()), std::shared_ptr<Down>(new Down())};
       break;
     case WDecayType::US:
-      decay_products = {std::make_shared<Up>(Up()), std::make_shared<Strange>(Strange())};
+      decay_products = {std::shared_ptr<Up>(new Up()), std::shared_ptr<Strange>(new Strange())};
       break;
     case WDecayType::UB:
-      decay_products = {std::make_shared<Up>(Up()), std::make_shared<Bottom>(Bottom())};
+      decay_products = {std::shared_ptr<Up>(new Up()), std::shared_ptr<Bottom>(new Bottom())};
       break;
     case WDecayType::CD:
-      decay_products = {std::make_shared<Charm>(Charm()), std::make_shared<Down>(Down())};
+      decay_products = {std::shared_ptr<Charm>(new Charm()), std::shared_ptr<Down>(new Down())};
       break;
     case WDecayType::CS:
-      decay_products = {std::make_shared<Charm>(Charm()), std::make_shared<Strange>(Strange())};
+      decay_products = {std::shared_ptr<Charm>(new Charm()), std::shared_ptr<Strange>(new Strange())};
       break;
     case WDecayType::CB:
-      decay_products = {std::make_shared<Charm>(Charm()), std::make_shared<Bottom>(Bottom())};
+      decay_products = {std::shared_ptr<Charm>(new Charm()), std::shared_ptr<Bottom>(new Bottom())};
       break;
     case WDecayType::TD:
-      decay_products = {std::make_shared<Top>(Top()), std::make_shared<Down>(Down())};
+      decay_products = {std::shared_ptr<Top>(new Top()), std::shared_ptr<Down>(new Down())};
       break;
     case WDecayType::TS:
-      decay_products = {std::make_shared<Top>(Top()), std::make_shared<Strange>(Strange())};
+      decay_products = {std::shared_ptr<Top>(new Top()), std::shared_ptr<Strange>(new Strange())};
       break;
     case WDecayType::TB:
-      decay_products = {std::make_shared<Top>(Top()), std::make_shared<Bottom>(Bottom())};
+      decay_products = {std::shared_ptr<Top>(new Top()), std::shared_ptr<Bottom>(new Bottom())};
       break;
+    default:
+      std::cout<<"No decay type given - defaulting to Electron"<<endl;
+      decay_products = {std::shared_ptr<Electron>(new Electron()), std::shared_ptr<ElectronNeutrino>(new ElectronNeutrino())};
   }
   decay_products.at(0)->set_anti(is_anti);
   decay_products.at(1)->set_anti(!is_anti);

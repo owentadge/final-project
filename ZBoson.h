@@ -19,6 +19,9 @@ public:
   // Move
   ZBoson(ZBoson&& z_in);
 
+  // Destructor
+  ~ZBoson(){}
+
   // Operator overloads
   // Copy assignment
   ZBoson& operator=(ZBoson& z_in);
