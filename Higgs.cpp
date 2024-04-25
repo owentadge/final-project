@@ -7,7 +7,7 @@ Particle(energy, px, py, pz, 0, 125110, 0, false)
 {
   switch(decay_type)
   {
-    case Z:
+    case HiggsDecayType::Z:
       break;
   }
 }

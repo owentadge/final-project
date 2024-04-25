@@ -10,14 +10,16 @@ enum ColourCharge
   GREEN = 5,
   ANTIGREEN = 6 
 };
-enum HiggsDecayType
+
+enum class HiggsDecayType
 {
   Z,
   W,
   PHOTON,
   B,
 };
-enum ZDecayType
+
+enum class ZDecayType
 {
   ELECTRON,
   MUON,
@@ -32,4 +34,21 @@ enum ZDecayType
   TOP,
   BOTTOM,
 };
+
+enum class WDecayType
+{
+  ELECTRON,
+  MUON,
+  TAU,
+  UD,
+  US,
+  UB,
+  CD,
+  CS,
+  CB,
+  TD,
+  TS,
+  TB
+};
+
 #endif

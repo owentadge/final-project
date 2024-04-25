@@ -14,7 +14,7 @@ public:
   Higgs() = default;
   // Parameterised
   Higgs(double energy, double px, double py, double pz, HiggsDecayType decay_type);
-  Higgs(vector<double> momentum_in,HiggsDecayType decay_type);
+  Higgs(vector<double> momentum_in, HiggsDecayType decay_type);
   // Copy
   Higgs(Higgs& higgs_in);
   // Move
