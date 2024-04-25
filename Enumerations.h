@@ -15,6 +15,21 @@ enum HiggsDecayType
   Z,
   W,
   PHOTON,
-  B
+  B,
+};
+enum ZDecayType
+{
+  ELECTRON,
+  MUON,
+  TAU,
+  ELECTRONNEUTRINO,
+  MUONNEUTRINO,  
+  TAUNEUTRINO,
+  UP,
+  DOWN,
+  CHARM,
+  STRANGE,
+  TOP,
+  BOTTOM,
 };
 #endif

@@ -1,9 +1,9 @@
-#ifndef HiggsBoson_h
-#define HiggsBoson_h
+#ifndef Higgs_h
+#define Higgs_h
 #include"Particle.h"
 #include"Enumerations.h"
 
-class HiggsBoson: public Particle
+class Higgs: public Particle
 {
 protected:
 
@@ -11,20 +11,20 @@ protected:
 public:
   // Constructors
   // Default
-  HiggsBoson() = default;
+  Higgs() = default;
   // Parameterised
-  HiggsBoson(double energy, double px, double py, double pz);
-  HiggsBoson(vector<double> momentum_in);
+  Higgs(double energy, double px, double py, double pz, HiggsDecayType decay_type);
+  Higgs(vector<double> momentum_in,HiggsDecayType decay_type);
   // Copy
-  HiggsBoson(HiggsBoson& higgs_in);
+  Higgs(Higgs& higgs_in);
   // Move
-  HiggsBoson(HiggsBoson&& higgs_in);
+  Higgs(Higgs&& higgs_in);
 
   // Operator overloads
   // Copy assignment
-  HiggsBoson& operator=(HiggsBoson& higgs_in);
+  Higgs& operator=(Higgs& higgs_in);
   // Move assignment
-  HiggsBoson& operator=(HiggsBoson&& higgs_in);
+  Higgs& operator=(Higgs&& higgs_in);
 
   // Getters
   string get_name();

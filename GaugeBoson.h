@@ -1,6 +1,19 @@
 #ifndef GaugeBoson_h
 #define GaugeBoson_h
 #include"Particle.h"
+#include"Enumerations.h"
+#include"Electron.h"
+#include"Muon.h"
+#include"Tau.h"
+#include"ElectronNeutrino.h"
+#include"MuonNeutrino.h"
+#include"TauNeutrino.h"
+#include"Up.h"
+#include"Down.h"
+#include"Bottom.h"
+#include"Top.h"
+#include"Strange.h"
+#include"Charm.h"
 
 class GaugeBoson: public Particle
 {

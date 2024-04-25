@@ -8,6 +8,7 @@ Fermion(energy, px, py, pz, mass_in, charge_in, anti_in)
   if(is_anti)
   {
     baryon_number = -1.0/3.0;
+    charge = -charge_in;
     if(colour_in % 2 == 0){colour_charge = colour_in;}
     else
     {
@@ -33,6 +34,7 @@ Fermion(momentum_in, mass_in, charge_in, anti_in)
   if(is_anti)
   {
     baryon_number = -1.0/3.0;
+    charge = -charge_in;
     if(colour_in % 2 == 0){colour_charge = colour_in;}
     else
     {

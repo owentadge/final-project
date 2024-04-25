@@ -1,20 +1,27 @@
-#include"HiggsBoson.h"
+#include"Higgs.h"
 
 // Constructors
 // Parameterised
-HiggsBoson::HiggsBoson(double energy, double px, double py, double pz):
-Particle(energy, px, py, pz, 0, 125110, 0, false){}
+Higgs::Higgs(double energy, double px, double py, double pz, HiggsDecayType decay_type):
+Particle(energy, px, py, pz, 0, 125110, 0, false)
+{
+  switch(decay_type)
+  {
+    case Z:
+      break;
+  }
+}
 
-HiggsBoson::HiggsBoson(vector<double> momentum_in):
+Higgs::Higgs(vector<double> momentum_in, HiggsDecayType decay_type):
 Particle(momentum_in, 0, 125110, 0, false){}
 // Copy
-HiggsBoson::HiggsBoson(HiggsBoson& higgs_in): Particle(higgs_in){}
+Higgs::Higgs(Higgs& higgs_in): Particle(higgs_in){}
 // Move
-HiggsBoson::HiggsBoson(HiggsBoson&& higgs_in): Particle(move(higgs_in)){}
+Higgs::Higgs(Higgs&& higgs_in): Particle(move(higgs_in)){}
 
 // Operator overloads
 // Copy assignment
-HiggsBoson& HiggsBoson::operator=(HiggsBoson& higgs_in)
+Higgs& Higgs::operator=(Higgs& higgs_in)
 {
   if(&higgs_in == this){return *this;}
   else
@@ -24,7 +31,7 @@ HiggsBoson& HiggsBoson::operator=(HiggsBoson& higgs_in)
   }
 }
 // Move assignment
-HiggsBoson& HiggsBoson::operator=(HiggsBoson&& higgs_in)
+Higgs& Higgs::operator=(Higgs&& higgs_in)
 {
   if(&higgs_in == this){return *this;}
   else
@@ -35,14 +42,14 @@ HiggsBoson& HiggsBoson::operator=(HiggsBoson&& higgs_in)
 }
 
 // Getters
-string HiggsBoson::get_name(){return "Higgs Boson";}
-vector<std::shared_ptr<Particle>> HiggsBoson::get_decay_products(){return decay_products;}
+string Higgs::get_name(){return "Higgs Boson";}
+vector<std::shared_ptr<Particle>> Higgs::get_decay_products(){return decay_products;}
 
 // Setters
-void HiggsBoson::set_decay_products(vector<std::shared_ptr<Particle>> products){decay_products = products;}
+void Higgs::set_decay_products(vector<std::shared_ptr<Particle>> products){decay_products = products;}
 
 // Printer
-void HiggsBoson::print_data(bool include_products)
+void Higgs::print_data(bool include_products)
 {
   Particle::print_data();
   if(include_products)
