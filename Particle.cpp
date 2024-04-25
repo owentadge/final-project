@@ -83,6 +83,7 @@ FourMomentum Particle::get_four_momentum(){return *four_momentum;}
 
 // Setters
 void Particle::set_four_momentum(FourMomentum four_momentum_in){four_momentum = std::make_unique<FourMomentum>(four_momentum_in);}
+void Particle::set_anti(bool anti_in){is_anti = anti_in;}
 
 // Printer
 void Particle::print_data()

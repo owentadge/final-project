@@ -58,11 +58,11 @@ void Tau::print_data(bool include_products)
   if(include_products)
   {
     std::cout<<"Decays into:\n{\n"<<endl;
-    vector<shared_ptr<Particle>>::iterator i{};
+    vector<std::shared_ptr<Particle>>::iterator i{};
     for(i = decay_products.begin(); i < decay_products.end(); i++)
     {
-      (*i)->print_data();
+      std::cout<<(*i)->get_name()<<endl;
     }
-    std::cout<<"}"<<endl;
+    std::cout<<endl<<"}"<<endl;
   }
 }

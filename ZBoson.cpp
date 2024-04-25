@@ -43,58 +43,47 @@ vector<std::shared_ptr<Particle>> ZBoson::get_decay_products(){return decay_prod
 // Setters
 void ZBoson::set_decay_products(ZDecayType decay_type)
 {
-  vector<double> dummy_four_momentum{10,1,2,3};
   switch(decay_type)
   {
     case ZDecayType::ELECTRON:
-      decay_products = {std::make_shared<Electron>(Electron(dummy_four_momentum,false,{10,1,2,3})),
-                        std::make_shared<Electron>(Electron(dummy_four_momentum,true,{10,1,2,3}))};
+      decay_products = {std::make_shared<Electron>(Electron()), std::make_shared<Electron>(Electron())};
       break;
     case ZDecayType::MUON:
-      decay_products = {std::make_shared<Muon>(Muon(dummy_four_momentum,false,false)),
-                        std::make_shared<Muon>(Muon(dummy_four_momentum,true,false))};
+      decay_products = {std::make_shared<Muon>(Muon()), std::make_shared<Muon>(Muon())};
       break;
     case ZDecayType::TAU:
-      decay_products = {std::make_shared<Tau>(Tau(dummy_four_momentum,false,{})),
-                        std::make_shared<Tau>(Tau(dummy_four_momentum,true,{}))};
+      decay_products = {std::make_shared<Tau>(Tau()), std::make_shared<Tau>(Tau())};
       break;
     case ZDecayType::ELECTRONNEUTRINO:
-      decay_products = {std::make_shared<ElectronNeutrino>(ElectronNeutrino(dummy_four_momentum,false,false)),
-                        std::make_shared<ElectronNeutrino>(ElectronNeutrino(dummy_four_momentum,true,false))};
+      decay_products = {std::make_shared<ElectronNeutrino>(ElectronNeutrino()), std::make_shared<ElectronNeutrino>(ElectronNeutrino())};
       break;
     case ZDecayType::MUONNEUTRINO:
-      decay_products = {std::make_shared<ElectronNeutrino>(ElectronNeutrino(dummy_four_momentum,false,false)),
-                        std::make_shared<ElectronNeutrino>(ElectronNeutrino(dummy_four_momentum,true,false))};
+      decay_products = {std::make_shared<ElectronNeutrino>(ElectronNeutrino()), std::make_shared<ElectronNeutrino>(ElectronNeutrino())};
       break;
     case ZDecayType::TAUNEUTRINO:
-      decay_products = {std::make_shared<TauNeutrino>(TauNeutrino(dummy_four_momentum,false,false)),
-                        std::make_shared<TauNeutrino>(TauNeutrino(dummy_four_momentum,true,false))};
+      decay_products = {std::make_shared<TauNeutrino>(TauNeutrino()), std::make_shared<TauNeutrino>(TauNeutrino())};
       break;                    
     case ZDecayType::UP:
-      decay_products = {std::make_shared<Up>(Up(dummy_four_momentum, false, RED)),
-                        std::make_shared<Up>(Up(dummy_four_momentum, true, ANTIRED))};
+      decay_products = {std::make_shared<Up>(Up()), std::make_shared<Up>(Up())};
       break;
     case ZDecayType::DOWN:
-      decay_products = {std::make_shared<Down>(Down(dummy_four_momentum, false, RED)),
-                        std::make_shared<Down>(Down(dummy_four_momentum, true, ANTIRED))};
+      decay_products = {std::make_shared<Down>(Down()), std::make_shared<Down>(Down())};
       break;
     case ZDecayType::TOP:
-      decay_products = {std::make_shared<Top>(Top(dummy_four_momentum, false, RED)),
-                        std::make_shared<Top>(Top(dummy_four_momentum, true, RED))};
+      decay_products = {std::make_shared<Top>(Top()), std::make_shared<Top>(Top())};
       break;
     case ZDecayType::BOTTOM:
-      decay_products = {std::make_shared<Bottom>(Bottom(dummy_four_momentum, false, RED)),
-                        std::make_shared<Bottom>(Bottom(dummy_four_momentum, true, RED))};
+      decay_products = {std::make_shared<Bottom>(Bottom()), std::make_shared<Bottom>(Bottom())};
       break;
     case ZDecayType::STRANGE:
-      decay_products = {std::make_shared<Strange>(Strange(dummy_four_momentum, false, RED)),
-                        std::make_shared<Strange>(Strange(dummy_four_momentum, true, RED))};
+      decay_products = {std::make_shared<Strange>(Strange()), std::make_shared<Strange>(Strange())};
       break;
     case ZDecayType::CHARM:
-      decay_products = {std::make_shared<Charm>(Charm(dummy_four_momentum, false, RED)),
-                        std::make_shared<Charm>(Charm(dummy_four_momentum, true, RED))};
+      decay_products = {std::make_shared<Charm>(Charm()), std::make_shared<Charm>(Charm())};
       break;
   }
+  decay_products.at(0)->set_anti(false);
+  decay_products.at(1)->set_anti(true);
 }
 
 // Printer
@@ -104,11 +93,11 @@ void ZBoson::print_data(bool include_products)
   if(include_products)
   {
     std::cout<<"Decays into:\n{\n"<<endl;
-    vector<shared_ptr<Particle>>::iterator i{};
+    vector<std::shared_ptr<Particle>>::iterator i{};
     for(i = decay_products.begin(); i < decay_products.end(); i++)
     {
-      (*i)->print_data();
+      std::cout<<(*i)->get_name()<<endl;
     }
-    std::cout<<"}"<<endl;
+    std::cout<<endl<<"}"<<endl;
   }
 }

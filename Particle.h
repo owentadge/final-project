@@ -2,6 +2,7 @@
 #define Particle_h
 
 #include<memory>
+#include<utility>
 #include"FourMomentum.h"
 
 using std::string;
@@ -43,6 +44,7 @@ public:
   virtual string get_name() = 0;
   // Setters
   void set_four_momentum(FourMomentum four_momentum_in);
+  void set_anti(bool anti_in);
   // Printer function
   virtual void print_data();
 };

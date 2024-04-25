@@ -2,6 +2,10 @@
 #define Higgs_h
 #include"Particle.h"
 #include"Enumerations.h"
+#include"ZBoson.h"
+#include"WBoson.h"
+#include"Photon.h"
+#include"Bottom.h"
 
 class Higgs: public Particle
 {
@@ -31,7 +35,7 @@ public:
   vector<std::shared_ptr<Particle>> get_decay_products();
 
   // Setters
-  void set_decay_products(vector<std::shared_ptr<Particle>>);
+  void set_decay_products(HiggsDecayType decay_type);
 
   // Printer
   void print_data(bool include_products);
