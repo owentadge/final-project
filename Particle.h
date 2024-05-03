@@ -1,13 +1,16 @@
 #ifndef Particle_h
 #define Particle_h
 
-#include<memory>
+
 #include<utility>
 #include"FourMomentum.h"
 
 using std::string;
 using std::move;
+using std::vector;
 using std::endl;
+
+class FourMomentum;
 
 class Particle
 {

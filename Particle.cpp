@@ -1,5 +1,7 @@
 #include"Particle.h"
 
+#include<cmath>
+
 // Constructors
 // Parameterised
 Particle::Particle(double energy, double px, double py, double pz, double spin_in, double mass_in, double charge_in, bool anti_in)
@@ -15,6 +17,12 @@ Particle::Particle(double energy, double px, double py, double pz, double spin_i
   else if(four_momentum->get_invariant_mass() < rest_mass)
   {
     std::cout<<"Invariant mass is less than particle rest mass!! Assigning default values for energy = mass + 1 MeV..."<<endl;
+    double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
+    four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
+  }
+  else if(std::isnan(four_momentum->get_invariant_mass()))
+  {
+    std::cout<<"Energy is too low! Invariant mass is complex!! Assigning default values for energy = mass + 1Mev"<<endl;
     double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
     four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
   }
@@ -36,6 +44,12 @@ Particle::Particle(vector<double> momentum_in, double spin_in, double mass_in, d
   else if(four_momentum->get_invariant_mass() < rest_mass)
   {
     std::cout<<"Invariant mass is less than particle rest mass!! Assigning default values for energy = mass + 1 MeV..."<<endl;
+    double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
+    four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
+  }
+  else if(std::isnan(four_momentum->get_invariant_mass()))
+  {
+    std::cout<<"Energy is too low! Invariant mass is complex!! Assigning default values for energy = mass + 1Mev"<<endl;
     double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
     four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
   }

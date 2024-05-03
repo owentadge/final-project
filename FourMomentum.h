@@ -4,13 +4,18 @@
 #include<iostream>
 #include<vector>
 #include<cmath>
+#include<memory>
+
+#include"Particle.h"
 
 using std::vector;
+
+class Particle;
 
 class FourMomentum
 {
 private:
-  vector<double> verify_momentum(vector<double>& vector_in);
+  vector<double> verify_momentum(vector<double> vector_in, Particle* particle_in = nullptr);
 protected:
   vector<double> four_momentum;
 public:
@@ -47,7 +52,7 @@ public:
   double get_pz();
   double get_invariant_mass();
   // Momentum setter
-  void set_momentum(vector<double>& vector_in);
+  void set_momentum(vector<double> vector_in);
 
 };
 

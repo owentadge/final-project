@@ -14,7 +14,10 @@ FourMomentum::FourMomentum()
 }
 
 // Paramtereised
-FourMomentum::FourMomentum(double e_in, double px_in, double py_in, double pz_in){four_momentum = {e_in, px_in, py_in, pz_in};}
+FourMomentum::FourMomentum(double e_in, double px_in, double py_in, double pz_in)
+{
+  four_momentum = verify_momentum(std::vector({e_in, px_in, py_in, pz_in}));
+}
 
 FourMomentum::FourMomentum(vector<double>& four_momentum_in){four_momentum = four_momentum_in;}
 
@@ -100,7 +103,25 @@ double FourMomentum::get_invariant_mass()
   return sqrt(pow(this->get_e(), 2) - momentum_sum);
 }
 
+// Input check
+vector<double> FourMomentum::verify_momentum(vector<double> vector_in, Particle* particle_in) {
+  if(particle_in != nullptr){
+    double particle_mass = particle_in->get_rest_mass();
+    std::unique_ptr<FourMomentum> vector_as_fm = std::make_unique<FourMomentum>(FourMomentum(vector_in));
+    if(vector_as_fm->get_invariant_mass() == particle_mass){return vector_in;}
+    else
+    {
+      vector<double> temp(4);
+      temp.at(0) = sqrt(3) * particle_mass;
+      std::fill(temp.begin()+1, temp.end(), sqrt(2) * particle_mass);
+      std::cout<<"Invariant mass does not correspond to rest mass - assigning default values";
+      return temp;
+    }
+  }
+  else{return vector_in;}
+}
+
 // Setters
 // Momentum
-void FourMomentum::set_momentum(vector<double>& momentum_in){four_momentum = momentum_in;}
+void FourMomentum::set_momentum(vector<double> momentum_in){four_momentum = momentum_in;}
 
