@@ -50,3 +50,10 @@ Lepton& Lepton::operator=(Lepton&& lepton_in)
 
 // Getters
 int Lepton::get_lepton_number(){return lepton_number;}
+
+// Printer
+void Lepton::print_data()
+{
+  Particle::print_data();
+  std::cout<<"Lepton number = "<<lepton_number<<endl;
+}

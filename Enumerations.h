@@ -1,5 +1,6 @@
 #ifndef Enumerations_h
 #define Enumerations_h
+
 enum ColourCharge
 {
   NONE,

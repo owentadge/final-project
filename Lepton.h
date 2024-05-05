@@ -28,6 +28,9 @@ public:
   Lepton& operator=(Lepton&& lepton_in);
   // Getters
   int get_lepton_number();
+
+  // Printer
+  void print_data();
 };
 
 

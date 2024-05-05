@@ -46,7 +46,7 @@ Muon& Muon::operator=(Muon&& muon_in)
 // Printer
 void Muon::print_data()
 {
-  Particle::print_data();
+  Lepton::print_data();
   std::cout<<"Isolation status: ";
   if(is_isolated){std::cout<<"Isolated"<<endl<<endl;}
   else{std::cout<<"Not isolated"<<endl<<endl;}

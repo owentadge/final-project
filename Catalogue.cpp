@@ -57,7 +57,7 @@ void Catalogue::print_all()
   for(ums::iterator i = particle_set.begin(); i != particle_set.end(); i++)
   {
     (*i)->print_data();
-    std::cout<<">>~~~~~~~~~~~~~~~~~~~~~~~~~~<<"<<endl;
+    std::cout<<">>~~~~~~~~~~~~~~~~~~~~~~~~~~<<"<<endl<<endl;
   }
-  std::cout<<">>----END OF CATALOGUE----<<"<<endl<<endl;
+  std::cout<<">>----END OF CATALOGUE----<<"<<endl<<endl<<endl;
 }

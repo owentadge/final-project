@@ -77,7 +77,7 @@ string Electron::get_name()
 // Printer
 void Electron::print_data()
 {
-  Particle::print_data();
+  Lepton::print_data();
   std::cout<<"Deposited energies: "<<endl;
   for(int i{}; i < 4; i++)
   {

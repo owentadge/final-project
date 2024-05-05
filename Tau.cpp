@@ -119,7 +119,7 @@ void Tau::set_decay_products(TauDecayType decay_type)
 // Printer
 void Tau::print_data()
 {
-  Particle::print_data();
+  Lepton::print_data();
   std::cout<<"Decays into:\n{\n"<<endl;
   vector<std::shared_ptr<Particle>>::iterator i{};
   for(i = decay_products.begin(); i < decay_products.end(); i++)
