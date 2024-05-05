@@ -50,3 +50,14 @@ FourMomentum Catalogue::total_four_momentum()
   return total;
 }
 
+// Printer
+void Catalogue::print_all()
+{
+  std::cout<<"Catalogue members:"<<endl;
+  for(ums::iterator i = particle_set.begin(); i != particle_set.end(); i++)
+  {
+    (*i)->print_data();
+    std::cout<<">>~~~~~~~~~~~~~~~~~~~~~~~~~~<<"<<endl;
+  }
+
+}

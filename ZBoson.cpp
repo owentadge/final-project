@@ -90,17 +90,14 @@ void ZBoson::set_decay_products(ZDecayType decay_type)
 }
 
 // Printer
-void ZBoson::print_data(bool include_products)
+void ZBoson::print_data()
 {
   Particle::print_data();
-  if(include_products)
+  std::cout<<"Decays into:\n{\n"<<endl;
+  vector<std::shared_ptr<Particle>>::iterator i{};
+  for(i = decay_products.begin(); i < decay_products.end(); i++)
   {
-    std::cout<<"Decays into:\n{\n"<<endl;
-    vector<std::shared_ptr<Particle>>::iterator i{};
-    for(i = decay_products.begin(); i < decay_products.end(); i++)
-    {
-      std::cout<<(*i)->get_name()<<endl;
-    }
-    std::cout<<endl<<"}"<<endl;
+    std::cout<<(*i)->get_name()<<endl;
   }
+  std::cout<<endl<<"}"<<endl;
 }

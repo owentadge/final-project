@@ -47,7 +47,7 @@ public:
   void set_decay_products(TauDecayType decay_type);
 
   // Printer
-  void print_data(bool include_products);
+  void print_data();
 
 };
 

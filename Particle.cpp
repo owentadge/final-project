@@ -22,7 +22,7 @@ Particle::Particle(double energy, double px, double py, double pz, double spin_i
   }
   else if(std::isnan(four_momentum->get_invariant_mass()))
   {
-    std::cout<<"Energy is too low! Invariant mass is complex!! Assigning default values for energy = mass + 1Mev"<<endl;
+    std::cout<<"Energy is too low! Invariant mass is complex!! Assigning default values for energy = mass + 1Mev..."<<endl;
     double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
     four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
   }
@@ -49,7 +49,7 @@ Particle::Particle(vector<double> momentum_in, double spin_in, double mass_in, d
   }
   else if(std::isnan(four_momentum->get_invariant_mass()))
   {
-    std::cout<<"Energy is too low! Invariant mass is complex!! Assigning default values for energy = mass + 1Mev"<<endl;
+    std::cout<<"Energy is too low! Invariant mass is complex!! Assigning default values for energy = mass + 1Mev..."<<endl;
     double default_momentum = sqrt((pow(rest_mass+1, 2) - pow(rest_mass, 2)) / 3);
     four_momentum = std::make_unique<FourMomentum>(FourMomentum(rest_mass+1, default_momentum, default_momentum, default_momentum));
   }
@@ -126,8 +126,8 @@ void Particle::set_anti(bool anti_in){is_anti = anti_in;}
 // Printer
 void Particle::print_data()
 {
-  std::cout<<"Name: "<<get_name()<<endl<<"Mass: "<<rest_mass<<" MeV"<<endl<<"Charge: "<<charge<< " e"<<endl
-  <<"Spin: "<<spin<<endl<<"Four-momentum: [";
+  std::cout<<"Name: "<<get_name()<<endl<<"Mass = "<<rest_mass<<" MeV"<<endl<<"Charge = "<<charge<< " e"<<endl
+  <<"Spin = "<<spin<<endl<<"Four-momentum = [";
   for(int i{}; i < 4; i++)
   {
     std::cout<<four_momentum->get_momentum().at(i);

@@ -64,4 +64,17 @@ template<class c_type> int Catalogue::get_amount_like()
   return count;
 }
 
+// Get container of similar particles
+template<class c_type> Catalogue Catalogue::get_all_like()
+{
+  Catalogue subset;
+    int count{};
+  for(ums::iterator i = particle_set.begin(); i != particle_set.end(); i++)
+  {
+    if(typeid(*(*i)) == typeid(c_type)) subset.particle_set.insert(*i);
+  }
+  return subset;
+}
+
+
 #endif
