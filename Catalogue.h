@@ -47,6 +47,8 @@ public:
   // Printers
   // Print data for all particles
   void print_all();
+  // Print data for particles of a certain type
+  template<class c_type> void print_like();
 };
 
 
@@ -76,5 +78,9 @@ template<class c_type> Catalogue Catalogue::get_all_like()
   return subset;
 }
 
+template<class c_type> void Catalogue::print_like()
+{
+  this->get_all_like<c_type>().print_all();
+}
 
 #endif

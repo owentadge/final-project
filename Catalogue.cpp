@@ -59,5 +59,5 @@ void Catalogue::print_all()
     (*i)->print_data();
     std::cout<<">>~~~~~~~~~~~~~~~~~~~~~~~~~~<<"<<endl;
   }
-
+  std::cout<<">>----END OF CATALOGUE----<<"<<endl<<endl;
 }
