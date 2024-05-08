@@ -1,7 +1,7 @@
 #ifndef Tau_h
 #define Tau_h
 #include"Lepton.h"
-#include"Enumerations.h"
+#include"ColourCharge.h"
 #include"Electron.h"
 #include"Muon.h"
 #include"ElectronNeutrino.h"
@@ -13,6 +13,20 @@
 #include"Strange.h"
 
 using std::shared_ptr;
+
+
+
+enum class TauDecayType
+{
+  ELECTRON,
+  MUON,
+  UD,
+  US,
+  CD,
+  CS
+};
+
+
 
 class Tau: public Lepton
 {

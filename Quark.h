@@ -1,7 +1,7 @@
 #ifndef Quark_h
 #define Quark_h
 #include"Fermion.h"
-#include"Enumerations.h"
+#include"ColourCharge.h"
 
 class Quark: public Fermion
 {

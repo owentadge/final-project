@@ -3,6 +3,22 @@
 #include"GaugeBoson.h"
 
 
+enum class WDecayType
+{
+  ELECTRON,
+  MUON,
+  TAU,
+  UD,
+  US,
+  UB,
+  CD,
+  CS,
+  CB,
+  TD,
+  TS,
+  TB
+};
+
 class WBoson: public GaugeBoson
 {
 protected:

@@ -2,6 +2,21 @@
 #define ZBoson_h
 #include"GaugeBoson.h"
 
+enum class ZDecayType
+{
+  ELECTRON,
+  MUON,
+  TAU,
+  ELECTRONNEUTRINO,
+  MUONNEUTRINO,  
+  TAUNEUTRINO,
+  UP,
+  DOWN,
+  CHARM,
+  STRANGE,
+  TOP,
+  BOTTOM,
+};
 
 class ZBoson: public GaugeBoson
 {
@@ -38,5 +53,7 @@ public:
   // Printer
   void print_data();
 };
+
+
 
 #endif

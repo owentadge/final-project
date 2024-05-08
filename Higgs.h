@@ -1,11 +1,22 @@
 #ifndef Higgs_h
 #define Higgs_h
 #include"Particle.h"
-#include"Enumerations.h"
+#include"ColourCharge.h"
 #include"ZBoson.h"
 #include"WBoson.h"
 #include"Photon.h"
 #include"Bottom.h"
+
+enum class HiggsDecayType
+{
+  Z,
+  W,
+  PHOTON,
+  B,
+};
+
+
+
 
 class Higgs: public Particle
 {

@@ -1,7 +1,7 @@
 #ifndef GaugeBoson_h
 #define GaugeBoson_h
 #include"Particle.h"
-#include"Enumerations.h"
+#include"ColourCharge.h"
 #include"Electron.h"
 #include"Muon.h"
 #include"Tau.h"
