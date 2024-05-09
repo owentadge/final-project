@@ -54,6 +54,10 @@ int main()
   Gluon wrongGluon = Gluon(100.8, 1.2, 2.2, 4, std::make_pair<ColourCharge, ColourCharge>(RED, RED));
   // Anti-quarks need anti colour charge
   Up wrongUp = Up(132, 34, 5, 1.23, true, RED);
+  std::cout<<"A gluon was instantiated with red-red colour charges. The following particle was created, showing the right correction:"<<endl;
+  wrongGluon.print_data();
+  std::cout<<"An up antiquark was instantiated with red colour charge. The following particle was created, showing the right correction:"<<endl;
+  wrongUp.print_data();
 
   system("pause");
   return 0;
