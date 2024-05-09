@@ -10,10 +10,13 @@ using std::move;
 using std::vector;
 using std::endl;
 
+
+
 class FourMomentum;
 
 class Particle
 {
+  
 protected:
   std::unique_ptr<FourMomentum> four_momentum;
   double rest_mass;

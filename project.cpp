@@ -5,7 +5,6 @@
 
 int main()
 {
-  std::cout<<std::boolalpha;
   // Instantiate catalogue container and fill with one particle and one antiparticle of each type
   Catalogue testCatalogue;
   // This also covers the input checking aspect - many of these are non-physical four-momenta
