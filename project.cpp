@@ -46,6 +46,8 @@ int main()
   // Print data for the whole catalogue
   testCatalogue.print_all();
 
+  // Print catalogue size
+  std::cout<<"Total number of particles: "<<testCatalogue.size()<<endl<<endl;
 
   std::cout<<"The following warnings are from proving input checking works:"<<endl;
   // Try and make some particles with bad charcteristics to show input checking
